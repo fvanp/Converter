@@ -21,11 +21,6 @@ function openTab(evt, tabName) {
 document.getElementsByClassName("tablinks")[0].click();
 
 // Voorbeeld conversiefuncties (aanpassen naar behoefte)
-function convertLength() {
-    var value = document.getElementById("lengthValue").value;
-    var result = value * 10; // Voorbeeld: cm naar mm
-    document.getElementById("lengthResult").innerText = value + " cm is gelijk aan " + result + " mm.";
-}
 
 function convertLengthText() {
     // Haal de waarde uit de textarea

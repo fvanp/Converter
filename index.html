@@ -13,7 +13,7 @@
         <div class="tabs">
             <button class="tablinks" onclick="openTab(event, 'lengths')">Lengths</button>
             <button class="tablinks" onclick="openTab(event, 'volumes')">Volumes</button>
-            <button class="tablinks" onclick="openTab(event, 'currencies')">Valuta</button>
+            <button class="tablinks" onclick="openTab(event, 'currencies')">Currency</button>
         </div>
 
     </header>
@@ -71,11 +71,28 @@
     </div>
 
     <div id="volumes" class="tabcontent">
-        <h2>Volume Converter</h2>
-        <label for="volumeValue">Waarde:</label>
-        <input type="number" id="volumeValue" placeholder="Aantal liter">
+        <label for="volumeValue">Typ your desired currency convertion:</label>
+        <textarea id="volumeValue" placeholder="For example: 10 USD to EUR"></textarea>
         <button onclick="convertVolume()">Converteren</button>
-        <p id="volumeResult"></p>
+        <textarea id="volumeResult" readonly></textarea>
+
+        <h2> </h2>
+        <table>
+            <thead>
+                <tr>
+                    
+                    <th colspan="3">All accepted conversions (From and to)</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>US Dollar (USD)</td>
+                    <td>Euro (EUR)</td>
+                    <td>Taiwanese Dollar (TWD)</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <div id="currencies" class="tabcontent">
@@ -95,9 +112,9 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>US Dollar (USD)</td>
-                    <td>Euro (EUR)</td>
-                    <td>Taiwanese Dollar (TWD)</td>
+                    <td>Liter (L)</td>
+                    <td>Gallon (G)</td>
+                    <td>Milliliter (ml)</td>
                 </tr>
             </tbody>
         </table>
