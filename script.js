@@ -119,12 +119,120 @@ function convertLengthText() {
 }
 
 
-
 function convertVolume() {
-    var value = document.getElementById("volumeValue").value;
-    var result = value * 1000; // Voorbeeld: liter naar milliliter
-    document.getElementById("volumeResult").innerText = value + " liter is gelijk aan " + result + " milliliter.";
+    // Haal de waarde uit de textarea
+    var inputText = document.getElementById("volumeValue").value;
+    
+    // Split de tekst op nieuwe regels of komma's
+    var values = inputText.split(/\s*,\s*|\r?\n+/);
+    
+    var result = ""; // Voor het resultaat van de conversies
+
+    // Eenheden en hun conversiefactor naar liter (L)
+    var unitToLiter = {
+        "ml": 0.001,      // Milliliter naar liter
+        "cl": 0.01,       // Centiliter naar liter
+        "dl": 0.1,        // Deciliter naar liter
+        "l": 1,           // Liter naar liter
+        "hl": 100,        // Hectoliter naar liter
+        "m³": 1000,       // Kubieke meter naar liter
+        "cm³": 0.001,     // Kubieke centimeter naar liter
+        "dm³": 1,         // Kubieke decimeter naar liter
+        "ft³": 28.3168,   // Kubieke voet naar liter
+        "in³": 0.016387,  // Kubieke inch naar liter
+        "gal": 3.78541,   // Amerikaanse gallon naar liter
+        "qt": 0.946353,   // Quart naar liter
+        "pt": 0.473176,   // Pint naar liter
+        "cup": 0.24,      // Beker naar liter
+        "tbsp": 0.0147868,// Eetlepel naar liter
+        "tsp": 0.00492892 // Theelepel naar liter
+    };
+
+    // Volledig uitgeschreven eenheden omzetten naar afkortingen
+    var fullToAbbreviation = {
+        // Nederlandse termen
+        "milliliter": "ml",
+        "centiliter": "cl",
+        "deciliter": "dl",
+        "liter": "l",
+        "hectoliter": "hl",
+        "kubieke meter": "m³",
+        "kubieke centimeter": "cm³",
+        "kubieke decimeter": "dm³",
+        "kubieke voet": "ft³",
+        "kubieke inch": "in³",
+        "gallon": "gal",
+        "quart": "qt",
+        "pint": "pt",
+        "beker": "cup",
+        "eetlepel": "tbsp",
+        "theelepel": "tsp",
+    
+        // Engelse termen
+        "millilitre": "ml",
+        "centilitre": "cl",
+        "decilitre": "dl",
+        "litre": "l",
+        "hectolitre": "hl",
+        "cubic meter": "m³",
+        "cubic centimetre": "cm³",
+        "cubic decimetre": "dm³",
+        "cubic foot": "ft³",
+        "cubic inch": "in³",
+        "gallons": "gal",
+        "quarts": "qt",
+        "pints": "pt",
+        "cup": "cup",
+        "tablespoon": "tbsp",
+        "teaspoon": "tsp"
+    };
+    
+
+    // Loop door elke invoer en voer de conversie uit
+    for (var i = 0; i < values.length; i++) {
+        var input = values[i].trim();
+
+        // Reguliere expressie om invoer te matchen zoals "10 L naar ml"
+        var match = input.match(/^(\d+\.?\d*)\s*([\w\s]+)\s+(?:naar|to|a|à|en|zu)\s+([\w\s]+)$/i);
+
+
+        var convertedValue = null;
+        
+        if (match) {
+            var value = parseFloat(match[1]); // De waarde (bijv. 10)
+            var fromUnit = match[2].toLowerCase(); // De begin-eenheid (bijv. L)
+            var toUnit = match[3].toLowerCase(); // De doel-eenheid (bijv. ml)
+
+            // Zet de volledige eenheid om naar de afkorting
+            fromUnit = fullToAbbreviation[fromUnit] || fromUnit;
+            toUnit = fullToAbbreviation[toUnit] || toUnit;
+
+            fromUnit = fromUnit.toLowerCase();
+            toUnit = toUnit.toLowerCase();
+
+            // Controleer of de eenheden geldig zijn
+            if (unitToLiter[fromUnit] !== undefined && unitToLiter[toUnit] !== undefined) {
+                // Zet de waarde eerst om naar liter
+                var valueInLiters = value * unitToLiter[fromUnit];
+                
+                // Zet de waarde van liter om naar de doel-eenheid
+                convertedValue = valueInLiters / unitToLiter[toUnit];
+
+                // Voeg de conversie toe aan de resultaatstring
+                result += value + " " + fromUnit + " is gelijk aan " + convertedValue.toFixed(4) + " " + toUnit + ".\n";
+            } else {
+                result += "Onbekende eenheid voor conversie: " + fromUnit + " naar " + toUnit + ".\n";
+            }
+        } else {
+            result += "Invoer '" + input + "' is niet correct geformatteerd.\n";
+        }
+    }
+
+    // Zet het resultaat in de result-paragraaf
+    document.getElementById("volumeResult").value += result + "\n";
 }
+
+
 async function convertCurrency() {
     var inputText = document.getElementById("currencyText").value;
     var values = inputText.split(/\s*,\s*|\r?\n+/);
