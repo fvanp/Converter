@@ -1,0 +1,161 @@
+/* Algemene stijlen */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #060918; /* Donkergrijze achtergrond */
+    color: white;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    background-color: #916fd1;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    height: 100px;
+}
+header h1 {
+    margin-bottom: 10px; /* Ruimte tussen tekst en knoppen */
+}
+
+h1 {
+    font-size: 2.5em;
+    margin: 0;
+    padding-top: 10px;
+}
+
+/* Tabs styling */
+.tabs {
+    display: flex;
+    justify-content: center; /* Knoppen centreren */
+    gap: 15px; /* Ruimte tussen knoppen */
+    margin-top: 5px; /* Afstand tussen titel en knoppen */
+}
+
+.tablinks {
+    background-color: #7252af;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+}
+
+.tablinks:hover {
+    background-color: #575757;
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.tablinks.active {
+    background-color: #575757;
+}
+
+/* Tab inhoud */
+.tabcontent {
+    display: none;
+    text-align: center;
+}
+
+.tabcontent input, .tabcontent button {
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.tabcontent input:focus, .tabcontent button:focus {
+    border-color: #916fd1;
+}
+
+button {
+    background-color: #916fd1;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #916fd1;
+}
+textarea {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: none; /* Voorkom dat de gebruiker het formaat van de textarea wijzigt */
+    background-color: #333;
+    color: white;
+    text-align: center;
+}
+
+textarea:focus {
+    border-color: #4CAF50; /* Groene rand bij focus */
+}
+/* Algemene stijlen voor de tabel */
+table {
+    width: 100%; /* Zorgt ervoor dat de tabel de volledige breedte gebruikt */
+    border-collapse: collapse; /* Zorgt ervoor dat de cellen tegen elkaar aan zitten zonder extra ruimte */
+    margin-top: 100px; /* Ruimte boven de tabel */
+}
+
+/* Stijlen voor de tabelkoppen */
+th {
+    /*background-color: #f2f2f2; /* Lichte grijze achtergrond voor de koppen */
+    padding: 10px; /* Wat padding om de tekst niet te dicht bij de rand te laten staan */
+    text-align: center; /* Tekst uitlijnen naar links */
+    border-bottom: 3px solid #ddd; /* Onderste border voor de koppen */
+    border-left:   3px solid #ddd; /* Linker kant */
+    border-right: 3px solid #ddd;
+    border-top: 3px solid #ddd;
+}
+
+/* Stijlen voor de tabeldata */
+td {
+    padding: 8px; /* Padding voor de cellen */
+    text-align: center; /* Tekst uitlijnen naar links */
+    border-bottom: 1px solid #ddd; /* Onderste rand voor de cellen */
+    border-left:   1px solid #ddd; /* Linker kant */
+    border-right: 1px solid #ddd;
+}
+
+
+/* Hover effect voor de rijen */
+tr:hover {
+    background-color: #20042b; /* Lichte achtergrondkleur bij hover */
+}
+
+/* Stijlen voor de tabelhoofding en overall styling */
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#lengthOutput {
+    width: 100%;  
+    height: 100px; /* Pas de hoogte aan indien nodig */
+    margin-top: 10px;  
+    padding: 5px;
+    font-size: 16px;
+    resize: none; /* Voorkomt dat de gebruiker de grootte kan aanpassen */
+}
+
+/* Responsieve ontwerp */
+@media (max-width: 600px) {
+    .tablinks {
+        font-size: 1em;
+        padding: 12px 20px;
+    }
+
+    .tabcontent input, .tabcontent button {
+        width: 100%;
+    }
+}

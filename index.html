@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversion</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>QuickConvert</h1>
+
+        <div class="tabs">
+            <button class="tablinks" onclick="openTab(event, 'lengths')">Lengths</button>
+            <button class="tablinks" onclick="openTab(event, 'volumes')">Volumes</button>
+            <button class="tablinks" onclick="openTab(event, 'currencies')">Valuta</button>
+        </div>
+
+    </header>
+
+
+    <div id="lengths" class="tabcontent">
+        
+        <label for="lengthText">Typ your desired length conversion:</label>
+        <textarea id="lengthText" placeholder="Bijv. 10 cm naar mm"></textarea>
+        <button onclick="convertLengthText()">Converteren</button>
+        <textarea id="lengthOutput" readonly></textarea>
+
+        <h2> </h2>
+        <table>
+            <thead>
+                <tr>
+                    
+                    <th colspan="3">All accepted conversions (From and to)</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Millimeter (mm)</td>
+                    <td>Centimeter (cm)</td>
+                    <td>Meter (m)</td>
+                </tr>
+                <tr>
+                    <td>Decimeter (dm)</td>
+                    <td>Kilometer (km)</td>
+                    <td>Micrometer (µm)</td>
+                </tr>
+                <tr>
+                    <td>Nanometer (nm)</td>
+                    <td>Mile (mi)</td>
+                    <td>Yard (yd)</td>
+                </tr>
+                <tr>
+                    <td>Foot (ft)</td>
+                    <td>Inch (in)</td>
+                    <td>Terameter (Tm)</td>
+                </tr>
+                <tr>
+                    <td>Picometer (pm)</td>
+                    <td>Decameter (da)</td>
+                    <td>Hectometer (h)</td>
+                </tr>
+                <tr>
+                    <td>Megameter (M)</td>
+                    <td>GigaMeter (G)</td>
+                    <td>Lightyear (ly) </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div id="volumes" class="tabcontent">
+        <h2>Volume Converter</h2>
+        <label for="volumeValue">Waarde:</label>
+        <input type="number" id="volumeValue" placeholder="Aantal liter">
+        <button onclick="convertVolume()">Converteren</button>
+        <p id="volumeResult"></p>
+    </div>
+
+    <div id="currencies" class="tabcontent">
+        <label for="currencyText">Typ your desired currency convertion:</label>
+        <textarea id="currencyText" placeholder="Bijv. 10 USD naar EUR"></textarea>
+        <button onclick="convertCurrency()">Converteren</button>
+        <textarea id="currencyOutput" readonly></textarea>
+
+        <h2> </h2>
+        <table>
+            <thead>
+                <tr>
+                    
+                    <th colspan="3">All accepted conversions (From and to)</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>US Dollar (USD)</td>
+                    <td>Euro (EUR)</td>
+                    <td>Taiwanese Dollar (TWD)</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
